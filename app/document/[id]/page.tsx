@@ -1,5 +1,9 @@
-import { DocumentChat } from "@/components/document/document-chat"
+import { DocumentChat } from '@/components/document/document-chat';
 
-export default function DocumentPage({ params }: { params: { id: string } }) {
-  return <DocumentChat documentId={params.id} />
+export default async function DocumentPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  return <DocumentChat documentId={(await params).id} />;
 }
